@@ -1,20 +1,20 @@
 {
   "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
-  "name": "CP",
+  "name": "BSL",
   "patterns": [
     {
-      "match": "\\b(namespace|as namespace|using)\\s+([_a-zA-Z]([_a-zA-Z0-9]|\\.)*)\\b",
+      "match": "\\b(namespace|include namespace|exclude namespace|using)\\s+([_a-zA-Z]([_a-zA-Z0-9]|\\.)*)\\b",
       "captures": {
         "1": {
-          "name": "keyword.control.cplang"
+          "name": "keyword.control.bsl"
         },
         "2": {
-          "name": "entity.name.class.cplang"
+          "name": "entity.name.class.bsl"
         }
       }
     },
     {
-      "name": "keyword.control.cplang",
+      "name": "keyword.control.bsl",
       "match": "\\b(namespace|as|using|if|else|while|do|for|foreach|enum|switch|case|break|default|continue|exit|const|var|fun|return|try|catch|throw|struct)\\b"
     },
     { "include": "#multiline-strings" },
@@ -33,16 +33,16 @@
     "multiline-strings": {
       "patterns": [
         {
-          "name": "string.quoted.backtick.cplang",
+          "name": "string.quoted.backtick.bsl",
           "begin": "`",
           "end": "`",
           "patterns": [
             {
-              "name": "constant.character.escape.cplang",
+              "name": "constant.character.escape.bsl",
               "match": "\\\\."
             },
             {
-              "name": "constant.character.cplang",
+              "name": "constant.character.bsl",
               "begin": "\\$\\{",
               "end": "\\}",
               "patterns": [
@@ -51,7 +51,7 @@
             },
             {
               "match": "[^\\`\\$]+",
-              "name": "string.quoted.backtick.cplang"
+              "name": "string.quoted.backtick.bsl"
             }
           ]
         }
@@ -60,7 +60,7 @@
     "interpolated-arrays": {
       "patterns": [
         {
-          "name": "keyword.operator.cplang",
+          "name": "keyword.operator.bsl",
           "begin": "\\{",
           "end": "\\}",
           "patterns": [
@@ -72,7 +72,7 @@
     "interpolated-structs": {
       "patterns": [
         {
-          "name": "entity.name.class.cplang",
+          "name": "entity.name.class.bsl",
           "match": "\\b([_a-zA-Z][_a-zA-Z0-9]*)\\b(?=\\s*\\{)"
         }
       ]
@@ -98,7 +98,7 @@
     "operators": {
       "patterns": [
         {
-          "name": "keyword.operator.cplang",
+          "name": "keyword.operator.bsl",
           "match": "(\\+|\\-|\\*|\\/|%|\\/%|\\*\\*|\\^|\\&|\\||~|<<|>>|==|!=|<|>|<=|>=|<=>|\\+\\+|\\-\\-|\\?|:|::|=|,|\\(|\\)|\\{|\\})"
         }
       ]
@@ -106,15 +106,15 @@
     "types": {
       "patterns": [
         {
-          "name": "storage.type.cplang",
-          "match": "\\b(bool|int|float|char|string|any)\\b"
+          "name": "storage.type.bsl",
+          "match": "\\b(bool|int|float|char|string|function|any)\\b"
         }
       ]
     },
     "constants": {
       "patterns": [
         {
-          "name": "constant.language.cplang",
+          "name": "constant.language.bsl",
           "match": "\\b(true|false|this|null|not|and|or|in|ref|unref|typeof|typeid)\\b"
         }
       ]
@@ -122,7 +122,7 @@
     "functions": {
       "patterns": [
         {
-          "name": "entity.name.function.cplang",
+          "name": "entity.name.function.bsl",
           "match": "\\b[_a-zA-Z][_a-zA-Z0-9]*\\s*(?=\\()"
         }
       ]
@@ -130,7 +130,7 @@
     "builtins": {
       "patterns": [
         {
-          "name": "support.function.cplang",
+          "name": "support.function.bsl",
           "match": "\\b(print|println|read|readch|len|system|is_any|is_array|is_struct)\\b"
         }
       ]
@@ -138,13 +138,13 @@
     "structs": {
       "patterns": [
         {
-          "name": "entity.name.class.cplang",
+          "name": "entity.name.class.bsl",
           "patterns": [
             {
               "match": "\\bstruct\\s+([_a-zA-Z][_a-zA-Z0-9]*)\\b",
               "captures": {
                 "1": {
-                  "name": "entity.name.class.cplang"
+                  "name": "entity.name.class.bsl"
                 }
               }
             },
@@ -152,17 +152,17 @@
               "match": "\\b([_a-zA-Z][_a-zA-Z0-9]*)\\b::",
               "captures": {
                 "1": {
-                  "name": "entity.name.class.cplang"
+                  "name": "entity.name.class.bsl"
                 }
               }
             },
             {
               "match": "(?<=:\\s*)\\b[_a-zA-Z][_a-zA-Z0-9]*\\b",
-              "name": "entity.name.class.cplang"
+              "name": "entity.name.class.bsl"
             },
             {
               "match": "\\b([_a-zA-Z][_a-zA-Z0-9]*)\\b(?=\\s*\\{)",
-              "name": "entity.name.class.cplang"
+              "name": "entity.name.class.bsl"
             }
           ]
         }
@@ -171,7 +171,7 @@
     "variables": {
       "patterns": [
         {
-          "name": "variable.other.cplang",
+          "name": "variable.other.bsl",
           "match": "\\b[_a-zA-Z][_a-zA-Z0-9]*\\b"
         }
       ]
@@ -179,27 +179,27 @@
     "strings": {
       "patterns": [
         {
-          "name": "string.quoted.single.cplang",
+          "name": "string.quoted.single.bsl",
           "begin": "'",
           "end": "'",
           "patterns": [
             {
-              "name": "constant.character.escape.cplang",
+              "name": "constant.character.escape.bsl",
               "match": "\\\\."
             },
             {
               "match": "[^\\\\']",
-              "name": "string.quoted.single.cplang"
+              "name": "string.quoted.single.bsl"
             }
           ]
         },
         {
-          "name": "string.quoted.double.cplang",
+          "name": "string.quoted.double.bsl",
           "begin": "\"",
           "end": "\"",
           "patterns": [
             {
-              "name": "constant.character.escape.cplang",
+              "name": "constant.character.escape.bsl",
               "match": "\\\\."
             }
           ]
@@ -209,14 +209,14 @@
     "numbers": {
       "patterns": [
         {
-          "name": "constant.numeric.cplang",
+          "name": "constant.numeric.bsl",
           "patterns": [
             {
-              "name": "constant.numeric.integer.cplang",
+              "name": "constant.numeric.integer.bsl",
               "match": "\\b([0-9]+[fF]?|0b[01]+|0o[0-7]+|0d[0-9]+|0x[0-9a-fA-F]+)\\b"
             },
             {
-              "name": "constant.numeric.float.cplang",
+              "name": "constant.numeric.float.bsl",
               "match": "\\b([0-9]*\\.[0-9]+([eE][+-]?[0-9]+)?[fF]?|[0-9]+([eE][+-]?[0-9]+)[fF]?)\\b"
             }
           ]
@@ -226,7 +226,7 @@
     "line-comments": {
       "patterns": [
         {
-          "name": "comment.line.double-slash.cplang",
+          "name": "comment.line.double-slash.bsl",
           "match": "\\/\\/.*$"
         }
       ]
@@ -234,12 +234,12 @@
     "block-comments": {
       "patterns": [
         {
-          "name": "comment.block.cplang",
+          "name": "comment.block.bsl",
           "begin": "\\/\\*",
           "end": "\\*\\/",
           "patterns": [
             {
-              "name": "constant.character.escape.cplang",
+              "name": "constant.character.escape.bsl",
               "match": "\\\\."
             }
           ]
@@ -247,5 +247,5 @@
       ]
     }
   },
-  "scopeName": "source.cp"
+  "scopeName": "source.bsl"
 }

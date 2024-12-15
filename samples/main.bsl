@@ -10,12 +10,14 @@ using cp.core.exception;
 using some_lib;
 using folder.subfolder.lib;
 
-as namespace nmsp;
+include namespace nmsp;
 
 struct StructTest {
   var struct_var: string;
   var second_var: int;
 };
+
+exclude namespace nmsp;
 
 fun function_test(a: bool, b: int, c: float = 1f,
                   x: char = '\0', ...y: string,
@@ -121,6 +123,17 @@ switch (0) {
     break;
   default:
 }
+
+var f: function = fun () {
+  return true;
+};
+
+fun fp(func: function) {
+  func();
+}
+
+fp(f);
+fp(fun () { return false; });
 
 var ms = `asda
   This is a multiline string that accepts expressions.

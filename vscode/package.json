@@ -1,29 +1,31 @@
 {
-  "name": "cplang",
-  "displayName": "CPLang",
-  "description": "CP Programming Language",
-  "version": "1.0.6",
+  "name": "bsl",
+  "displayName": "BSL",
+  "description": "BSL: Basic Script Language",
+  "publisher": "Carlos Machado",
+  "version": "1.1.0",
   "repository": {
     "type": "git",
-    "url": "https://github.com/CP-Lang/extensions.git"
+    "url": "https://github.com/basic-script-language/extensions.git"
   },
   "engines": {
     "vscode": "^1.92.0"
   },
   "categories": [
-    "Programming Languages"
+    "Programming Languages",
+    "Language Packs"
   ],
   "contributes": {
     "languages": [{
-      "id": "cplang",
-      "aliases": ["CP", "cplang"],
-      "extensions": [".cp"],
+      "id": "BSL",
+      "aliases": ["BSL", "bsl", "Basic Script Language", "basic-script-language"],
+      "extensions": [".bsl"],
       "configuration": "./language-configuration.json"
     }],
     "grammars": [{
-      "language": "cplang",
-      "scopeName": "source.cp",
-      "path": "./syntaxes/cplang.tmLanguage.json"
+      "language": "BSL",
+      "scopeName": "source.bsl",
+      "path": "./syntaxes/bsl.tmLanguage.json"
     }]
   }
 }
