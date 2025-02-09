@@ -76,9 +76,10 @@ Para testar a extensão no VSCode:
 Quando estiver satisfeito com a syntax highlight, você pode distribuir a extensão:
 
 - **Empacotar a Extensão**:
-  ```bash
-  vsce package
-  ```
+```bash
+npm install -g vsce
+vsce package
+```
 - **Publicar no Marketplace**: Siga as instruções do [Visual Studio Code Marketplace](https://marketplace.visualstudio.com/) para publicar a extensão.
 
 ### 5. **Melhorias Adicionais**

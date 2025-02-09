@@ -1,0 +1,31 @@
+{
+  "name": "flexa",
+  "displayName": "Flexa",
+  "description": "Flexa: a toy script language",
+  "publisher": "Carlos Machado",
+  "version": "1.1.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/flexa-script/vscode-extension.git"
+  },
+  "engines": {
+    "vscode": "^1.92.0"
+  },
+  "categories": [
+    "Programming Languages",
+    "Language Packs"
+  ],
+  "contributes": {
+    "languages": [{
+      "id": "Flexa",
+      "aliases": ["Flexa", "flexa", "FLX", "flx"],
+      "extensions": [".flx"],
+      "configuration": "./language-configuration.json"
+    }],
+    "grammars": [{
+      "language": "Flexa",
+      "scopeName": "source.flx",
+      "path": "./syntaxes/flx.tmLanguage.json"
+    }]
+  }
+}

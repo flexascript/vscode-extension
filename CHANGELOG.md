@@ -1,6 +1,6 @@
 # Change Log
 
-All notable changes to the "BSL" extension will be documented in this file.
+All notable changes to the "Flexa" extension will be documented in this file.
 
 Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
 
@@ -34,6 +34,6 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 
 ### Changed
 
-- Match the new language name changed to BSL
+- Match the new language name changed to Flexa
 
 ### Removed

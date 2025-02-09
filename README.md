@@ -1,3 +1,3 @@
-# BSL Syntax Highlight
+# Flexa Syntax Highlight
 
 A simple syntax highlight for basec script language.
