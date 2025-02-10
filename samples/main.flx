@@ -71,7 +71,7 @@ try {
 
 try {
   throw cp::Exception{error="generated unpacked struct error"};
-} catch (ex: cp::Exception) {
+} catch (var ex: cp::Exception) {
   println("error: ", error);
 }
 
