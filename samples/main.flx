@@ -33,6 +33,15 @@ fun function_test(a: bool, b: int, c: float = 1f,
   }
 }
 
+// constant
+println(nmsp::TEST);
+// variable
+println(nmsp::var1);
+// classe
+println(typeof(nmsp::ExClass));
+// enum
+println(typeof(nmsp::VAL_X));
+
 println(nmsp::function_ret_value());
 nmsp::function_call();
 function_test(ref true, unref 5);
