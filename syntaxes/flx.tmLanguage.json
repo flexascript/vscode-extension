@@ -3,7 +3,7 @@
   "name": "Flexa",
   "patterns": [
     {
-      "match": "\\b(namespace|include namespace|exclude namespace|using)\\s+([_a-zA-Z]([_a-zA-Z0-9]|\\.)*)\\b",
+      "match": "\\b(namespace|include namespace|exclude namespace)\\s+([_a-zA-Z]([_a-zA-Z0-9]|\\.)*)\\b",
       "captures": {
         "1": {
           "name": "keyword.control.flx"
@@ -14,8 +14,28 @@
       }
     },
     {
+      "match": "\\b(using)\\s+([_a-zA-Z][_a-zA-Z0-9]*(?:\\.[_a-zA-Z][_a-zA-Z0-9]*)*)\\b;",
+      "captures": {
+        "1": {
+          "name": "keyword.control.flx"
+        },
+        "2": {
+          "patterns": [
+            {
+              "match": "([_a-zA-Z][_a-zA-Z0-9]*)",
+              "name": "entity.name.class.flx"
+            },
+            {
+              "match": "\\.",
+              "name": "punctuation.separator.flx"
+            }
+          ]
+        }
+      }
+    },
+    {
       "name": "keyword.control.flx",
-      "match": "\\b(namespace|as|using|if|else|while|do|for|foreach|enum|switch|case|break|default|continue|exit|const|var|fun|return|try|catch|throw|struct)\\b"
+      "match": "\\b(namespace|include|exclude|using|if|else|while|do|for|foreach|enum|switch|case|break|default|continue|exit|const|var|fun|return|try|catch|throw|struct)\\b"
     },
     { "include": "#multiline-strings" },
     { "include": "#types" },
@@ -27,9 +47,37 @@
     { "include": "#variables" },
     { "include": "#strings" },
     { "include": "#line-comments" },
-    { "include": "#block-comments" }
+    { "include": "#block-comments" },
+    { "include": "#ternary-operator" },
+    { "include": "#expressions" }
   ],
   "repository": {
+    "ternary-operator": {
+      "patterns": [
+        {
+          "name": "meta.ternary-expr.flx",
+          "begin": "(?<!:|\\w)\\?",
+          "end": ":",
+          "beginCaptures": {
+            "0": { "name": "keyword.operator.ternary.flx" }
+          },
+          "patterns": [
+            { "include": "#expressions" }
+          ]
+        },
+        {
+          "name": "meta.ternary-alternate.flx",
+          "begin": ":",
+          "end": "(?=;|\\)|\\}|$)",
+          "beginCaptures": {
+            "0": { "name": "keyword.operator.ternary.flx" }
+          },
+          "patterns": [
+            { "include": "#expressions" }
+          ]
+        }
+      ]
+    },
     "multiline-strings": {
       "patterns": [
         {
@@ -92,7 +140,9 @@
         { "include": "#interpolated-structs" },
         { "include": "#multiline-strings" },
         { "include": "#variables" },
-        { "include": "#operators" }
+        { "include": "#operators" },
+        { "include": "#ternary-operator" },
+        { "include": "#expressions" }
       ]
     },
     "operators": {

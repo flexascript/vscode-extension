@@ -1,3 +1,3 @@
 # Flexa Syntax Highlight
 
-A simple syntax highlight for basec script language.
+A simple syntax highlight for Flexa script.
