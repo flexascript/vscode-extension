@@ -35,7 +35,7 @@
     },
     {
       "name": "keyword.control.flx",
-      "match": "\\b(namespace|include|exclude|using|if|else|while|do|for|foreach|enum|switch|case|break|default|continue|exit|const|var|fun|return|try|catch|throw|struct)\\b"
+      "match": "\\b(namespace|include|exclude|using|if|else|while|do|for|foreach|enum|switch|case|break|default|continue|exit|const|var|fun|return|try|catch|throw|struct|lambda)\\b"
     },
     { "include": "#multiline-strings" },
     { "include": "#types" },
@@ -165,7 +165,7 @@
       "patterns": [
         {
           "name": "constant.language.flx",
-          "match": "\\b(true|false|this|null|not|and|or|in|ref|unref|typeof|typeid)\\b"
+          "match": "\\b(true|false|this|null|not|and|or|in|ref|unref|typeof|typeid|refid|is_struct|is_array|is_any)\\b"
         }
       ]
     },
@@ -181,7 +181,7 @@
       "patterns": [
         {
           "name": "support.function.flx",
-          "match": "\\b(print|println|read|readch|len|system|is_any|is_array|is_struct)\\b"
+          "match": "\\b(print|println|read|readch|len|system)\\b"
         }
       ]
     },

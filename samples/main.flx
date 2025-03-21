@@ -177,7 +177,7 @@ switch (0) {
 }
 
 // lambda function
-var f: function = fun () {
+var f: function = lambda () {
   return true;
 };
 
@@ -190,7 +190,7 @@ fun fp(func: function) {
 // function call passing a declared function
 fp(f);
 // function call passing a lambda function
-fp(fun () { return false; });
+fp(lambda () { return false; });
 
 // multiline string
 var ms = `asda

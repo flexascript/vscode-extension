@@ -30,6 +30,15 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 ### Removed
 - `as` keyword
 
+## [1.4.1] 2024-08-11
+### Added
+- `lambda` keyword
+- `refid` constant
+### Changed
+- `is_struct` from function to constant
+- `is_array` from function to constant
+- `is_any` from function to constant
+
 <!--
 ## [1.0.0] 2024-08-11
 ### Added
