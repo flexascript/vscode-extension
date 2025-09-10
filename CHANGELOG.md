@@ -39,6 +39,18 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 - `is_array` from function to constant
 - `is_any` from function to constant
 
+## [1.5.0] 2025-06-07
+### Added
+- `class`, `lambda`, `extends`, `static`, `init`, and `super` keywords
+
+## [1.6.0] 2025-06-10
+### Added
+- `self` keyword
+### Fixed
+- now extends are correct highlighted
+### Changed
+- Changed `super` to constants keywords
+
 <!--
 ## [1.0.0] 2024-08-11
 ### Added

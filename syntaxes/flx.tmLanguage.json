@@ -3,14 +3,41 @@
   "name": "Flexa",
   "patterns": [
     {
-      "match": "\\b(namespace|include namespace|exclude namespace)\\s+([_a-zA-Z]([_a-zA-Z0-9]|\\.)*)\\b",
+      "match": "\\b(class)\\s+([_a-zA-Z][_a-zA-Z0-9]*)\\b",
+      "captures": {
+        "1": { "name": "keyword.control.flx" },
+        "2": { "name": "entity.name.class.flx" }
+      }
+    },
+    {
+      "match": "\\b(extends)\\s+([_a-zA-Z][_a-zA-Z0-9]*(?:\\s*,\\s*[_a-zA-Z][_a-zA-Z0-9]*)*)\\b",
       "captures": {
         "1": {
           "name": "keyword.control.flx"
         },
         "2": {
-          "name": "entity.name.class.flx"
+          "patterns": [
+            {
+              "match": "[_a-zA-Z][_a-zA-Z0-9]*",
+              "name": "entity.name.class.flx"
+            },
+            {
+              "match": ",",
+              "name": "punctuation.separator.flx"
+            },
+            {
+              "match": "\\s*",
+              "name": "text.whitespace"
+            }
+          ]
         }
+      }
+    },
+    {
+      "match": "\\b(namespace|include namespace|exclude namespace)\\s+([_a-zA-Z]([_a-zA-Z0-9]|\\.)*)\\b",
+      "captures": {
+        "1": { "name": "keyword.control.flx" },
+        "2": { "name": "entity.name.class.flx" }
       }
     },
     {
@@ -35,7 +62,7 @@
     },
     {
       "name": "keyword.control.flx",
-      "match": "\\b(namespace|include|exclude|using|if|else|while|do|for|foreach|enum|switch|case|break|default|continue|exit|const|var|fun|return|try|catch|throw|struct|lambda)\\b"
+      "match": "\\b(namespace|include|exclude|using|if|else|while|do|for|foreach|enum|switch|case|break|default|continue|exit|const|var|fun|return|try|catch|throw|struct|class|lambda|extends|static|init)\\b"
     },
     { "include": "#multiline-strings" },
     { "include": "#types" },
@@ -61,9 +88,7 @@
           "beginCaptures": {
             "0": { "name": "keyword.operator.ternary.flx" }
           },
-          "patterns": [
-            { "include": "#expressions" }
-          ]
+          "patterns": [{ "include": "#expressions" }]
         },
         {
           "name": "meta.ternary-alternate.flx",
@@ -72,9 +97,7 @@
           "beginCaptures": {
             "0": { "name": "keyword.operator.ternary.flx" }
           },
-          "patterns": [
-            { "include": "#expressions" }
-          ]
+          "patterns": [{ "include": "#expressions" }]
         }
       ]
     },
@@ -93,9 +116,7 @@
               "name": "constant.character.flx",
               "begin": "\\$\\{",
               "end": "\\}",
-              "patterns": [
-                { "include": "#interpolated-expressions" }
-              ]
+              "patterns": [{ "include": "#interpolated-expressions" }]
             },
             {
               "match": "[^\\`\\$]+",
@@ -111,9 +132,7 @@
           "name": "keyword.operator.flx",
           "begin": "\\{",
           "end": "\\}",
-          "patterns": [
-            { "include": "#interpolated-expressions" }
-          ]
+          "patterns": [{ "include": "#interpolated-expressions" }]
         }
       ]
     },
@@ -165,7 +184,7 @@
       "patterns": [
         {
           "name": "constant.language.flx",
-          "match": "\\b(true|false|this|null|not|and|or|in|ref|unref|typeof|typeid|refid|is_struct|is_array|is_any)\\b"
+          "match": "\\b(true|false|this|null|not|and|or|in|ref|unref|typeof|typeid|refid|is_struct|is_array|is_any|super|self)\\b"
         }
       ]
     },

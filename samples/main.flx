@@ -212,3 +212,40 @@ var ms = `asda
 
 // exit the program
 exit(0);
+
+class Super {
+	var bar;
+
+	init(bar) {
+		self.bar = bar;
+	}
+}
+
+class Test extends Super {
+	var _private_var;
+	var foo;
+	const const_var = "string";
+	static static_var;
+	var test = 10;
+	const const_2;
+
+	init(_private_var, foo, test, const_2, bar) {
+		super(bar);
+		self._private_var = _private_var;
+		self.foo = foo;
+		self.test = test;
+		self.const_2 = const_2;
+	}
+
+	static make_l() {
+		return 333;
+	}
+}
+
+class Foo extends Test, Super, Bar {
+	var bar;
+
+	init(bar) {
+		self.bar = bar;
+	}
+}
