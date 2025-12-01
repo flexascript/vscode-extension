@@ -1,3 +1,3 @@
-# Flexa Extension
+# Flexa Extension for VSCode
 
-A simple syntax highlight for Flexa script.
+A VSCode extenstion for FlexaScript.
